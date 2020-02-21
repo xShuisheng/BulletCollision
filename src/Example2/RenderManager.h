@@ -52,6 +52,10 @@ public:
 
 	bool render();
 
+	void addRenderObject(DefaultRenderObject* object)
+	{
+		renderObjects.push_back(object);
+	}
 
 private:
 	void _setDefaultLights();

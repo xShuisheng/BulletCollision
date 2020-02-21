@@ -57,9 +57,9 @@ public:
 	*/
 	virtual void render(glm::mat4 transform=glm::mat4(1.0));
 
-	DiffuseMaterial& getMaterial()
+	SimpleMaterial& getMaterial()
 	{
-		return _material;
+		return _simple_material;
 	}
 
 	void useTexture(bool use_tex = true)
@@ -118,7 +118,7 @@ protected:
 	//unsigned int _id_texture_data = 0;
 	bool _use_texture = true;
 	unsigned int _id_texture_unit = 0;
-	DiffuseMaterial _material;
+	//DiffuseMaterial _material;
 	SimpleMaterial _simple_material;
 
 	// texture coordination

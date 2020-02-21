@@ -227,6 +227,11 @@ void DefaultRenderObject::bindAll()
 	{
 		std::cout << "here ERROR:    " << error << std::endl;
 	}
+
+	if (!pshader)
+	{
+		pshader = new Shader("D:\\Projects\\bullet\\bullet_collision\\src\\Example2\\default.vs", "D:\\Projects\\bullet\\bullet_collision\\src\\Example2\\default.fs");
+	}
 }
 
 void DefaultRenderObject::render(glm::mat4 transform)
@@ -252,18 +257,19 @@ void DefaultRenderObject::render(glm::mat4 transform)
 		std::cout << "0GL ERROR:    " << error << std::endl;
 	}
 	
-	if (_use_texture)
+	//if (_use_texture)
+	//{
+	//	pshader->setVec3("material.specular", _material.specular);
+	//	pshader->setInt("material.diffuse", _id_texture_unit);
+	//	pshader->setFloat("material.shininess", _material.shininess);
+	//	//pshader->setVec3("material.diffuse", 0.1, 0.6, 0.1);
+	//}
+	//else
 	{
-		pshader->setVec3("material.specular", _material.specular);
-		pshader->setInt("material.diffuse", _id_texture_unit);
-		pshader->setFloat("material.shininess", _material.shininess);
-		//pshader->setVec3("material.diffuse", 0.1, 0.6, 0.1);
-	}
-	else
-	{
+		// set material paras
 		pshader->setVec3("material.specular", _simple_material.specular);
 		pshader->setVec3("material.diffuse", _simple_material.diffuse);
-		pshader->setFloat("material.shininess", _material.shininess);
+		pshader->setFloat("material.shininess", _simple_material.shininess);
 	}
 
 	error = -1;
@@ -273,7 +279,7 @@ void DefaultRenderObject::render(glm::mat4 transform)
 		std::cout << "1GL ERROR:    " << error << std::endl;
 	}
 
-
+	// set transformation
 	pshader->setMat4("model", _mat_model);
 	pshader->setMat4("transform", transform);
 
@@ -283,11 +289,11 @@ void DefaultRenderObject::render(glm::mat4 transform)
 		std::cout << "2GL ERROR:    " << error << std::endl;
 	}
 
-	if (_use_texture)
-	{
-		glActiveTexture(GL_TEXTURE0 + _id_texture_unit);
-		glBindTexture(GL_TEXTURE_2D, _material.diffuse.id_texture);
-	}
+	//if (_use_texture)
+	//{
+	//	glActiveTexture(GL_TEXTURE0 + _id_texture_unit);
+	//	glBindTexture(GL_TEXTURE_2D, _material.diffuse.id_texture);
+	//}
 
 	error = glGetError();
 	if (error != GL_NO_ERROR)

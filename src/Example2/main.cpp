@@ -2,19 +2,27 @@
 #include "glad/glad.h"
 
 #include "GLUI.h"
+#include "RenderManager.h"
+#include "Cubic.h"
 
 using namespace std;
 
 int main()
 {
 
-	GLUI ui;
+	DefaultRenderManager* prender = DefaultRenderManager::getInstance();
 
-	ui.init();
+	Cubic cube;
+	prender->addRenderObject(&cube);
+	
 
-	while (!ui.windowClose())
+	while (!prender->window.windowClose())
 	{
 		std::cout << "1" << endl;
+		prender->render();
+
+		//glfwSwapBuffers((prender->window.pglwindow));
+		//glfwPollEvents();
 	}
 
 	system("pause");

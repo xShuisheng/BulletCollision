@@ -126,9 +126,9 @@ Cubic::Cubic()
 	_array_copy(indexes, _indexes, _num_triangles * 3);
 
 
-	_material.diffuse.loadTexture("container2.png");
-	_material.specular = glm::vec3(0.1, 0.1, 0.1);
-	_material.shininess = 32.0;
+	//_material.diffuse.loadTexture("container2.png");
+	//_material.specular = glm::vec3(0.1, 0.1, 0.1);
+	_simple_material.shininess = 32.0;
 	//loadTexture(_texture_path.c_str());
 
 	setVertexes(_num_vertexes, _vertexes);
