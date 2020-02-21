@@ -33,6 +33,8 @@ DefaultRenderManager::DefaultRenderManager():window(GLUI())
 	specular = glm::vec3(0.2, 0.2, 0.2);
 	shininess = 32.0;
 
+
+	camera.Position = glm::vec3(0, 0, 2.0);
 }
 
 DefaultRenderManager::~DefaultRenderManager()
@@ -122,9 +124,9 @@ void DefaultRenderManager::_setDefaultLights()
 {
 	// directional light
 	dirLight.direction = glm::vec3(-0.2f, -1.0f, -0.3f);
-	dirLight.ambient = glm::vec3(0.05f, 0.05f, 0.05f);
-	dirLight.diffuse = glm::vec3(0.4f, 0.4f, 0.4f);
-	dirLight.specular = glm::vec3(0.5f, 0.5f, 0.5f);
+	dirLight.ambient = glm::vec3(0.1f, 0.1f, 0.1f);
+	dirLight.diffuse = glm::vec3(0.7f, 0.7f, 0.7f);
+	dirLight.specular = glm::vec3(0.3f, 0.3f, 0.3f);
 
 	pointLights.resize(4);
 	// positions of the point lights
@@ -136,33 +138,33 @@ void DefaultRenderManager::_setDefaultLights()
 	};
 	// point light 1
 	pointLights[0].position = glm::vec3(pointLightPositions[0]);
-	pointLights[0].ambient = glm::vec3(0.05f, 0.05f, 0.05f);
-	pointLights[0].diffuse = glm::vec3(0.8f, 0.8f, 0.8f);
-	pointLights[0].specular = glm::vec3(1.0f, 1.0f, 1.0f);
+	pointLights[0].ambient = glm::vec3(0.0f, 0.0f, 0.0f);
+	pointLights[0].diffuse = glm::vec3(0.f, 0.f, 0.f);
+	pointLights[0].specular = glm::vec3(0.0f, 0.0f, 0.0f);
 	pointLights[0].constant = 1.0f;
 	pointLights[0].linear = 0.09;
 	pointLights[0].quadratic = 0.032;
 	// point light 2
 	pointLights[1].position = pointLightPositions[1];
-	pointLights[1].ambient = glm::vec3(0.05f, 0.05f, 0.05f);
-	pointLights[1].diffuse = glm::vec3(0.8f, 0.8f, 0.8f);
-	pointLights[1].specular = glm::vec3(1.0f, 1.0f, 1.0f);
+	pointLights[1].ambient = glm::vec3(0.0f, 0.0f, 0.0f);
+	pointLights[1].diffuse = glm::vec3(0.f, 0.f, 0.f);
+	pointLights[1].specular = glm::vec3(0.0f, 0.0f, 0.0f);
 	pointLights[1].constant = 1.0f;
 	pointLights[1].linear = 0.09;
 	pointLights[1].quadratic = 0.032;
 	// point light 3
 	pointLights[2].position = pointLightPositions[2];
-	pointLights[2].ambient = glm::vec3(0.05f, 0.05f, 0.05f);
-	pointLights[2].diffuse = glm::vec3(0.8f, 0.8f, 0.8f);
-	pointLights[2].specular = glm::vec3(1.0f, 1.0f, 1.0f);
+	pointLights[2].ambient = glm::vec3(0.0f, 0.0f, 0.0f);
+	pointLights[2].diffuse = glm::vec3(0.f, 0.f, 0.f);
+	pointLights[2].specular = glm::vec3(0.0f, 0.0f, 0.0f);
 	pointLights[2].constant = 1.0f;
 	pointLights[2].linear = 0.09;
 	pointLights[2].quadratic = 0.032;
 	// point light 4
 	pointLights[3].position = pointLightPositions[3];
-	pointLights[3].ambient = glm::vec3(0.05f, 0.05f, 0.05f);
-	pointLights[3].diffuse = glm::vec3(0.8f, 0.8f, 0.8f);
-	pointLights[3].specular = glm::vec3(1.0f, 1.0f, 1.0f);
+	pointLights[3].ambient = glm::vec3(0.0f, 0.00f, 0.0f);
+	pointLights[3].diffuse = glm::vec3(0.0f, 0.0f, 0.0f);
+	pointLights[3].specular = glm::vec3(0.0f, 0.0f, 0.0f);
 	pointLights[3].constant = 1.0f;
 	pointLights[3].linear = 0.09;
 	pointLights[3].quadratic = 0.032;
@@ -171,8 +173,8 @@ void DefaultRenderManager::_setDefaultLights()
 	spotLight.position = camera.Position;
 	spotLight.direction = camera.Front;
 	spotLight.ambient = glm::vec3(0.0f, 0.0f, 0.0f);
-	spotLight.diffuse = glm::vec3(1.0f, 1.0f, 1.0f);
-	spotLight.specular = glm::vec3(1.0f, 1.0f, 1.0f);
+	spotLight.diffuse = glm::vec3(0.0f, 0.0f, 0.0f);
+	spotLight.specular = glm::vec3(0.0f, 0.0f, 0.0f);
 	spotLight.constant = 1.0f;
 	spotLight.linear = 0.09;
 	spotLight.quadratic = 0.032;

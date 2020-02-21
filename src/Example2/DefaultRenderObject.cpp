@@ -7,6 +7,7 @@ DefaultRenderObject::DefaultRenderObject()
 {
 	_mat_model = glm::mat4(1.0);
 
+
 	//_simple_material
 
 	glGenVertexArrays(1, &_id_vao);
@@ -230,7 +231,7 @@ void DefaultRenderObject::bindAll()
 
 	if (!pshader)
 	{
-		pshader = new Shader("D:\\Projects\\bullet\\bullet_collision\\src\\Example2\\default.vs", "D:\\Projects\\bullet\\bullet_collision\\src\\Example2\\default.fs");
+		pshader = new Shader("D:\\Projects\\bullet\\bullet_collision\\src\\Example2\\Shader\\default.vs", "D:\\Projects\\bullet\\bullet_collision\\src\\Example2\\Shader\\default.fs");
 	}
 }
 

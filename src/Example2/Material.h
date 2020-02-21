@@ -5,8 +5,8 @@
 
 struct SimpleMaterial
 {
-	glm::vec3 specular = glm::vec3(0.1, 0.1, 0.1);
-	glm::vec3 diffuse = glm::vec3(0.5, 0.5, 0.5);
+	glm::vec3 specular = glm::vec3(0.9, 0.9, 0.9);
+	glm::vec3 diffuse = glm::vec3(0.9, 0.9, 0.9);
 	float shininess = 32.0;
 };
 

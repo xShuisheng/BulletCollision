@@ -7,6 +7,7 @@
 #include "GLUI.h"
 #include "EventCallback.h"
 #include <vector>
+#include "CollisionDispatch/btCollisionWorld.h"
 
 class DefaultRenderManager
 {
@@ -63,9 +64,11 @@ private:
 public:
 	GLUI window;
 
+	btCollisionWorld * collisionWorld=0;
+
 	Camera camera;
 
-	EventCallback eventCallback;
+	EventCallback2 eventCallback;
 
 	// render obects
 	std::vector<DefaultRenderObject*> renderObjects;
