@@ -124,7 +124,7 @@ void DefaultRenderManager::_setDefaultLights()
 {
 	// directional light
 	dirLight.direction = glm::vec3(-0.2f, -1.0f, -0.3f);
-	dirLight.ambient = glm::vec3(0.1f, 0.1f, 0.1f);
+	dirLight.ambient = glm::vec3(0.5f, 0.5f, 0.5f);
 	dirLight.diffuse = glm::vec3(0.7f, 0.7f, 0.7f);
 	dirLight.specular = glm::vec3(0.3f, 0.3f, 0.3f);
 
