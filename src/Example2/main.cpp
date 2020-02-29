@@ -160,25 +160,33 @@ void demo2()
 	// main loop
 	while (!prender->window.windowClose())
 	{
-		// 进行所有物体的碰撞检测
+		// collision detection of all CollisionObjects
 		collisionWorld->performDiscreteCollisionDetection();
 
 		std::vector<Cube*> m_collisionObjects;
 
-		// 碰撞manifold的数量
+		// get total number of collision manifolds
+		// a persistent manifold is a contact point cache
 		int numManifolds = collisionWorld->getDispatcher()->getNumManifolds();
 
+		// get all persistent manifolds
 		for (int i = 0; i<numManifolds; i++)
 		{
+			// get the i-th manifold
 			btPersistentManifold* contactManifold = collisionWorld->getDispatcher()->getManifoldByIndexInternal(i);
+
+			// contact objects
 			Cube* obA = const_cast<Cube*>(dynamic_cast<const Cube*>(contactManifold->getBody0()));
 			Cube* obB = const_cast<Cube*>(dynamic_cast<const Cube*>(contactManifold->getBody1()));
 
+			// a persistent manifold may cache 0 - 4 contact points
 			int numContacts = contactManifold->getNumContacts();
 			float min_dis = 10000;
 			for (int j = 0; j<numContacts; j++)
 			{
+				// get contact point
 				btManifoldPoint& pt = contactManifold->getContactPoint(j);
+
 				float dis = pt.getDistance();
 				if (min_dis > dis)
 				{
@@ -370,8 +378,8 @@ int main()
 {
 
 	//demo();
-	//demo2();
-	demo3();
+	demo2();
+	//demo3();
 	//DefaultRenderManager* prender = DefaultRenderManager::getInstance();
 
 	//Cube cube;
